@@ -65,7 +65,7 @@ class JsBundleFactory {
         library,
       },
       plugins = [],
-      tsConfigFilePath = path.resolve(__dirname, '../../tsconfig.json'),
+      tsConfigFilePath = path.resolve(__dirname, '../../tsconfig.es5.json'),
     }) {
     chunks = chunks || this.globber_.getChunks({inputDirectory, filePathPattern});
 
