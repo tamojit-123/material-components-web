@@ -118,29 +118,11 @@ module.exports = function(config) {
         // uncluttered source maps.
         rules: webpackConfig.module.rules.concat(config.singleRun ? [{
           enforce: 'post',
-          test: /\.(ts)$/,
-          include: path.resolve('./packages'),
-          use: [{
-            loader: 'istanbul-instrumenter-loader',
-            options: {esModules: true},
-          }],
-          exclude: [
-            /node_modules/,
-            /adapter.js/,
-            /constants.js/,
-          ],
+          test: /\.ts$/,
+          istanbulInstrumenterLoader,
         }, {
-          test: /\.(js)$/,
-          include: path.resolve('./packages'),
-          use: [{
-            loader: 'istanbul-instrumenter-loader',
-            options: {esModules: true},
-          }],
-          exclude: [
-            /node_modules/,
-            /adapter.js/,
-            /constants.js/,
-          ],
+          test: /\.js$/,
+          istanbulInstrumenterLoader,
         }] : []).filter(Boolean),
       }),
     }),
