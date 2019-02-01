@@ -33,18 +33,12 @@ const cssClasses = {
 const strings = {
   ARIA_ORIENTATION: 'aria-orientation',
   ARIA_ORIENTATION_HORIZONTAL: 'horizontal',
-<<<<<<< Updated upstream:packages/mdc-list/constants.js
   ARIA_SELECTED: 'aria-selected',
   ARIA_CHECKED: 'aria-checked',
   ARIA_CHECKED_RADIO_SELECTOR: '[role="radio"][aria-checked="true"]',
   ARIA_ROLE_CHECKBOX_SELECTOR: '[role="checkbox"]',
   ARIA_CHECKED_CHECKBOX_SELECTOR: '[role="checkbox"][aria-checked="true"]',
   RADIO_SELECTOR: 'input[type="radio"]:not(:disabled)',
-=======
-  ARIA_ROLE_CHECKBOX_SELECTOR: '[role="checkbox"]',
-  ARIA_SCTED: 'aria-selected',
-  CHECKBOX_RADIO_SELECTOR: 'input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled)',
->>>>>>> Stashed changes:packages/mdc-list/constants.ts
   CHECKBOX_SELECTOR: 'input[type="checkbox"]:not(:disabled)',
   CHECKBOX_RADIO_SELECTOR: 'input[type="checkbox"]:not(:disabled), input[type="radio"]:not(:disabled)',
   CHILD_ELEMENTS_TO_TOGGLE_TABINDEX: `.${cssClasses.LIST_ITEM_CLASS} button:not(:disabled),

@@ -168,7 +168,7 @@ function createTestSuiteForPointerEvents(downEvt, moveEvt, upEvt, pageXObj = (pa
     rootHandlers[downEvt](pageXObj(50));
     clock.runToFrame();
 
-    td.verify(mockAdapter.setMarkerValue(isA(Number)));
+    td.verify(mockAdapter.setMarkerValue(isA(String)));
   });
 
   test(`on ${downEvt} attaches event handlers for ${moveEvt} and all *up/end events to the document body`, () => {
@@ -277,7 +277,7 @@ function createTestSuiteForPointerEvents(downEvt, moveEvt, upEvt, pageXObj = (pa
     clock.runToFrame();
 
     // Once on mousedown, once on mousemove
-    td.verify(mockAdapter.setMarkerValue(isA(Number)), {times: 2});
+    td.verify(mockAdapter.setMarkerValue(isA(String)), {times: 2});
   });
 
   test(`on body ${upEvt} removes the mdc-slider--active class from the component`, () => {

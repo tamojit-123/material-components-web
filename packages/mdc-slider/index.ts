@@ -24,7 +24,6 @@
 import MDCComponent from '@material/base/component';
 
 import {strings} from './constants';
-import {MDCSliderAdapter} from './adapter';
 import {MDCSliderFoundation} from './foundation';
 
 class MDCSlider extends MDCComponent<MDCSliderFoundation> {

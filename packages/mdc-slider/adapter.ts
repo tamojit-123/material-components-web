@@ -32,13 +32,13 @@
  *
  */
 
-import {EventType, SpecificEventListener} from '@material/dom/index';
 import {PrefixedCssPropertyName, PrefixedJsEventType, StandardCssPropertyName} from '@material/animation/index';
+import {EventType, SpecificEventListener} from '@material/dom/index';
 
 type ThumbEventName = EventType | PrefixedCssPropertyName | PrefixedJsEventType;
 type ThumbStyleName = [keyof CSSStyleDeclaration] | PrefixedCssPropertyName | StandardCssPropertyName;
 
- interface MDCSliderAdapter {
+interface MDCSliderAdapter {
   /**
    * Returns true if className exists for the slider Element
    */
@@ -162,7 +162,7 @@ type ThumbStyleName = [keyof CSSStyleDeclaration] | PrefixedCssPropertyName | St
   /**
    * Sets a style property of the last track marker to the passed value
    */
-  setLastTrackMarkersStyleProperty(propertyName: [keyof CSSStyleDeclaration], value: string | null): void;
+  setLastTrackMarkersStyleProperty(propertyName: 'flex-grow', value: string | null): void;
 
   /**
    * Returns true if the root element is RTL, otherwise false

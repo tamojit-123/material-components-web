@@ -21,8 +21,8 @@
  * THE SOFTWARE.
  */
 
-import {cssClasses, numbers, strings} from './constants';
 import {MDCSliderAdapter} from './adapter';
+import {cssClasses, numbers, strings} from './constants';
 
 import {getCorrectEventName, getCorrectPropertyName} from '@material/animation/index';
 import MDCFoundation from '@material/base/foundation';
@@ -40,18 +40,17 @@ const KEY_IDS = {
 };
 
 const MOVE_EVENT_MAP: {[key: string]: ('mousemove' | 'pointermove' | 'touchmove')} = {
-  'mousedown': 'mousemove',
-  'pointerdown': 'pointermove',
-  'touchstart': 'touchmove',
+  mousedown: 'mousemove',
+  pointerdown: 'pointermove',
+  touchstart: 'touchmove',
 };
 
-const DOWN_EVENTS: ('mousedown' | 'pointerdown' | 'touchstart')[] =
+const DOWN_EVENTS: Array<'mousedown' | 'pointerdown' | 'touchstart'> =
   ['mousedown', 'pointerdown', 'touchstart'];
-const UP_EVENTS: ('mouseup' | 'pointerup' | 'touchend')[] =
+const UP_EVENTS: Array<'mouseup' | 'pointerup' | 'touchend'> =
   ['mouseup', 'pointerup', 'touchend'];
 
 type SliderInteractionEventTypes = MouseEvent | PointerEvent | TouchEvent;
-
 
 function isTouchEvent(event: any): event is TouchEvent {
   return event.targetTouches && event.targetTouches.length > 0;
@@ -113,20 +112,11 @@ class MDCSliderFoundation extends MDCFoundation<MDCSliderAdapter> {
   private min_ = 0;
   private max_ = 100;
   private step_ = 0;
-  private updateUIFrame_ = 0; // tslint:disable-line
+  // @ts-ignore:defined in function below
+  private updateUIFrame_ = 0;
   private value_ = 0;
   private disabled_ = false;
   private preventFocusState_ = false;
-  private thumbContainerPointerHandler_ = () => {
-   this.handlingThumbTargetEvt_ = true;
-  };
-  private interactionStartHandler_: SpecificEventListener<'mousedown'|'pointerdown'|'touchstart'> =
-    (evt) => this.handleDown_(evt);
-  private keydownHandler_: SpecificEventListener<'keydown'> =
-    (evt) => this.handleKeydown_(evt);
-  private focusHandler_: SpecificEventListener<'focus'> = () => this.handleFocus_();
-  private blurHandler_: SpecificEventListener<'focus'> = () => this.handleBlur_();
-  private resizeHandler_: SpecificEventListener<'resize'> = () => this.layout();
 
   /**
    * Creates a new instance of MDCSliderFoundation
@@ -168,7 +158,7 @@ class MDCSliderFoundation extends MDCFoundation<MDCSliderAdapter> {
   }
 
   setupTrackMarker() {
-    if (this.isDiscrete_ && this.hasTrackMarker_&& this.getStep() != 0) {
+    if (this.isDiscrete_ && this.hasTrackMarker_ && this.getStep() != 0) {
       const min = this.getMin();
       const max = this.getMax();
       const step = this.getStep();
@@ -267,6 +257,16 @@ class MDCSliderFoundation extends MDCFoundation<MDCSliderAdapter> {
       }
     }
   }
+  private thumbContainerPointerHandler_ = () => {
+   this.handlingThumbTargetEvt_ = true;
+  };
+  private interactionStartHandler_: SpecificEventListener<'mousedown'|'pointerdown'|'touchstart'> =
+    (evt) => this.handleDown_(evt);
+  private keydownHandler_: SpecificEventListener<'keydown'> =
+    (evt) => this.handleKeydown_(evt);
+  private focusHandler_: SpecificEventListener<'focus'> = () => this.handleFocus_();
+  private blurHandler_: SpecificEventListener<'focus'> = () => this.handleBlur_();
+  private resizeHandler_: SpecificEventListener<'resize'> = () => this.layout();
 
   /**
    * Called when the user starts interacting with the slider
