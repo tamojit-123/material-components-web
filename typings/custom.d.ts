@@ -24,3 +24,7 @@
 declare interface Window {
   CSS: CSS;
 }
+
+declare interface GlobalEventHandlersEventMap {
+  "webkitTransitionEnd": TransitionEvent; 
+}
